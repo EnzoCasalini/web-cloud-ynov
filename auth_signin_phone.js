@@ -24,3 +24,7 @@ export const verifyCode = async (code, confirmationResult, setMessage) => {
     setMessage(`Erreur lors de la vérification du code : ${error.message}`);
   }
 };
+
+export const onSignInSubmit = async (phone, verifier) => {
+  return await signInWithPhoneNumber(auth, phone, verifier);
+}

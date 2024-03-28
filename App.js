@@ -4,6 +4,7 @@ import {useState} from "react";
 import {signup} from "./auth_signup_password";
 import {signin} from "./auth_signin_password";
 import {sendVerificationCode, verifyCode} from "./auth_signin_phone";
+import {signinWithGithub} from "./auth_github_signin_popup";
 
 export default function App() {
   const [email, setEmail] = useState('');
@@ -63,25 +64,8 @@ export default function App() {
       />
       <Button title="Sign Up" onPress={() => handleSignUp(email, password, setMessage)} />
       <Button title="Sign In" onPress={() => handleSignIn(email, password, setMessage)} />
-      <Text>Phone Authentication</Text>
-      <TextInput
-        style={styles.input}
-        onChangeText={setPhone}
-        value={phone}
-        placeholder="Phone Number"
-      />
-      <Button title="Send Verification Code" onPress={handleSendVerificationCode} />
-      {confirmationResult && (
-        <>
-          <TextInput
-            style={styles.input}
-            onChangeText={setCode}
-            value={code}
-            placeholder="Verification Code"
-          />
-          <Button title="Verify Code" onPress={handleVerifyCode} />
-        </>
-      )}
+      <Text>GitHub Authentication</Text>
+      <Button title="Sign In with GitHub" onPress={() => signinWithGithub()} />
       {/* Utiliser un état pour contrôler l'affichage du Toast peut nécessiter une logique supplémentaire pour le rendre et le cacher correctement. */}
       {message !== '' && <Toast visible={true} position={50} shadow={false} animation={false} hideOnPress={true}>{message}</Toast>}
     </View>
