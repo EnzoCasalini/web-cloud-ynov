@@ -67,7 +67,7 @@ export default function App() {
       <Text>GitHub Authentication</Text>
       <Button title="Sign In with GitHub" onPress={() => signinWithGithub()} />
       {/* Utiliser un état pour contrôler l'affichage du Toast peut nécessiter une logique supplémentaire pour le rendre et le cacher correctement. */}
-      {message !== '' && <Toast visible={true} position={50} shadow={false} animation={false} hideOnPress={true}>{message}</Toast>}
+      <Toast visible={message !== ''} position={50} shadow={false} animation={true} hideOnPress={true}>{message}</Toast>
     </View>
   );
 }
