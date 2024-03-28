@@ -1,30 +1,26 @@
-import { getAuth, RecaptchaVerifier, signInWithCredential, PhoneAuthProvider } from 'firebase/auth';
+// authentication_phone.js
+import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from 'firebase/auth';
 import './firebaseConfig';
 
-// Initialiser Firebase
 const auth = getAuth();
-auth.languageCode = 'fr';
-window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {});
 
-export const sendVerificationCode = async (phoneNumber, setVerificationId, setMessage) => {
+export const sendVerificationCode = async (phone, setConfirmationResult, setMessage) => {
   try {
-    const phoneProvider = new PhoneAuthProvider(auth);
-    const verificationId = await phoneProvider.verifyPhoneNumber(phoneNumber, window.recaptchaVerifier);
-    setVerificationId(verificationId);
+    const verifier = new RecaptchaVerifier(auth, 'recaptcha-container', {});
+    const result = await signInWithPhoneNumber(auth, phone, verifier);
+    setConfirmationResult(result);
     setMessage("Code de vérification envoyé.");
   } catch (error) {
     setMessage(`Erreur lors de l'envoi du code : ${error.message}`);
-    console.log(error);
   }
 };
 
-export const verifyCode = async (verificationId, code, setMessage) => {
+export const verifyCode = async (code, confirmationResult, setMessage) => {
   try {
-    const credential = PhoneAuthProvider.credential(verificationId, code);
-    await signInWithCredential(auth, credential);
+    const result = await confirmationResult.confirm(code);
+    // Code vérifié avec succès, utilisateur connecté
     setMessage("Authentification réussie !");
   } catch (error) {
     setMessage(`Erreur lors de la vérification du code : ${error.message}`);
-    console.log(error);
   }
 };

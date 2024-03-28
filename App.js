@@ -39,7 +39,7 @@ export default function App() {
   // Adjust verifyCode to match the expected function signature and use verificationId
   const handleVerifyCode = () => {
     if (confirmationResult) {
-      verifyCode(confirmationResult, code, setMessage);
+      verifyCode(code, (result) => setConfirmationResult(result), (msg) => setMessage(msg));
     } else {
       setMessage("Erreur: Pas de verificationId disponible. Veuillez d'abord envoyer le code.");
     }
