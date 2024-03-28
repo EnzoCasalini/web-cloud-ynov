@@ -1,13 +1,13 @@
 // authentication_phone.js
-import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from 'firebase/auth';
+import { getAuth, signInWithPhoneNumber } from 'firebase/auth';
 import './firebaseConfig';
 
 const auth = getAuth();
+const appVerifier = window.recaptchaVerifier;
 
 export const sendVerificationCode = async (phone, setConfirmationResult, setMessage) => {
   try {
-    const verifier = new RecaptchaVerifier(auth, 'recaptcha-container', {});
-    const result = await signInWithPhoneNumber(auth, phone, verifier);
+    const result = await signInWithPhoneNumber(auth, phone, appVerifier);
     setConfirmationResult(result);
     setMessage("Code de vérification envoyé.");
   } catch (error) {
