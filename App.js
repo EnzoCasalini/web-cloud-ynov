@@ -1,11 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {useState} from "react";
+import {signup} from "./auth_signup_password";
 
 export default function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Email</Text>
+      <TextInput
+          style={styles.input}
+          onChangeText={setEmail}
+          value={email}
+      ></TextInput>
+      <Text>Password</Text>
+      <TextInput
+          style={styles.input}
+          onChangeText={setPassword}
+          value={password}
+          secureTextEntry={true}
+      ></TextInput>
+      <Button title="Sign Up !" onPress={() => signup(email, password)}></Button>
     </View>
   );
 }
@@ -16,5 +32,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  input: {
+    height: 40,
+    width: 200,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 });
