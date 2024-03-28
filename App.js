@@ -1,27 +1,29 @@
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
 import {useState} from "react";
 import {signup} from "./auth_signup_password";
+import {signin} from "./auth_signin_password";
 
 export default function App() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-  return (
+    return (
     <View style={styles.container}>
-      <Text>Email</Text>
-      <TextInput
-          style={styles.input}
-          onChangeText={setEmail}
-          value={email}
-      ></TextInput>
-      <Text>Password</Text>
-      <TextInput
-          style={styles.input}
-          onChangeText={setPassword}
-          value={password}
-          secureTextEntry={true}
-      ></TextInput>
-      <Button title="Sign Up !" onPress={() => signup(email, password)}></Button>
+        <Text>Email</Text>
+        <TextInput
+            style={styles.input}
+            onChangeText={setEmail}
+            value={email}
+        ></TextInput>
+        <Text>Password</Text>
+        <TextInput
+            style={styles.input}
+            onChangeText={setPassword}
+            value={password}
+            secureTextEntry={true}
+        ></TextInput>
+        <Button title="Sign Up !" onPress={() => signup(email, password)}></Button>
+        <Button title="Sign In !" onPress={() => signin(email, password)}></Button>
     </View>
   );
 }
