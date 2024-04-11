@@ -27,13 +27,19 @@
       },
       "package": "com.enzocasalini.webcloudynov"
     },
+    "scheme": "web-cloud-ynov",
     "web": {
+      "bundler": "metro",
+      "output": "static",
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
         "projectId": "932e1551-2e8a-4d29-b3d9-644679192e22"
       }
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
