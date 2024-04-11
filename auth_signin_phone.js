@@ -27,7 +27,7 @@ export const loginWithPhoneNumber = async (phoneNumber) => {
       // SMS sent. Prompt user to type the code from the message, then sign the
       // user in with confirmationResult.confirm(code).
       window.confirmationResult = confirmationResult;
-      console.log(confirmationResult)
+      console.log("confirmationResult : " + confirmationResult)
       return confirmationResult;
       // ...
     }).catch((error) => {

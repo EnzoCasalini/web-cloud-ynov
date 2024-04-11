@@ -59,7 +59,6 @@ export default function App() {
       <Pressable onPress={() => verifyCode(code)} style = {styles.button}>
         <Text>Check Code !</Text>
       </Pressable>
-
     </View>
   );
 }
