@@ -1,9 +1,9 @@
-import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {Button, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import Toast from 'react-native-root-toast';
 import {useState} from "react";
 import {signup} from "./auth_signup_password";
 import {signin} from "./auth_signin_password";
-import {sendVerificationCode, verifyCode} from "./auth_signin_phone";
+import {loginWithPhoneNumber, sendVerificationCode, verifyCode} from "./auth_signin_phone";
 import {signinWithGithub} from "./auth_github_signin_popup";
 
 export default function App() {
@@ -48,27 +48,52 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Email Authentication</Text>
+      {/* <Toast visible={true}>Thanks for subscribing!</Toast> */}
+      <Text>Email</Text>
       <TextInput
         style={styles.input}
         onChangeText={setEmail}
         value={email}
-        placeholder="Email"
-      />
+      ></TextInput>
+      <Text>Password</Text>
       <TextInput
         style={styles.input}
         onChangeText={setPassword}
         value={password}
-        placeholder="Password"
         secureTextEntry={true}
-      />
+      ></TextInput>
+      <Pressable onPress={() => signup(email, password)} style = {styles.button}>
+        <Text>Sign Up!</Text>
+      </Pressable>
+      <Pressable onPress={() => signin(email, password)} style = {styles.button}>
+        <Text>Sign In!"</Text>
+      </Pressable>
+      <Text>____Github_____</Text>
+      <Pressable onPress={() => signinWithGithub()} style = {styles.button}>
+        <Text>Sign In with Github</Text>
+      </Pressable>
+
+      <Text>____Phone_____</Text>
+      <Text>Phone number</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={setPhone}
+        value={phoneNumber}
+      ></TextInput>
+      <Pressable id="sign-in-button-phone" onPress={() => loginWithPhoneNumber(phoneNumber)} style = {styles.button}>
+        <Text>Sign In with Phone</Text>
+      </Pressable>
       <div id="recaptcha-container"></div>
-      <Button title="Sign Up" onPress={() => handleSignUp(email, password, setMessage)} />
-      <Button title="Sign In" onPress={() => handleSignIn(email, password, setMessage)} />
-      <Text>GitHub Authentication</Text>
-      <Button title="Sign In with GitHub" onPress={() => signinWithGithub()} />
-      {/* Utiliser un état pour contrôler l'affichage du Toast peut nécessiter une logique supplémentaire pour le rendre et le cacher correctement. */}
-      <Toast visible={message !== ''} position={50} shadow={false} animation={true} hideOnPress={true}>{message}</Toast>
+      <Text>Code</Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={setCode}
+        value={code}
+      ></TextInput>
+      <Pressable onPress={() => verifyCode(code)} style = {styles.button}>
+        <Text>Check Code !</Text>
+      </Pressable>
+
     </View>
   );
 }

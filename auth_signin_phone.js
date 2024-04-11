@@ -1,30 +1,40 @@
-// authentication_phone.js
-import { getAuth, signInWithPhoneNumber } from 'firebase/auth';
-import './firebaseConfig';
+import app from "../firebaseConfig";
+import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 
-const auth = getAuth();
-const appVerifier = window.recaptchaVerifier;
+const auth = getAuth(app);
+console.log(auth);
 
-export const sendVerificationCode = async (phone, setConfirmationResult, setMessage) => {
-  try {
-    const result = await signInWithPhoneNumber(auth, phone, appVerifier);
-    setConfirmationResult(result);
-    setMessage("Code de vérification envoyé.");
-  } catch (error) {
-    setMessage(`Erreur lors de l'envoi du code : ${error.message}`);
-  }
+export const loginWithPhoneNumber = async (phoneNumber) => {
+  window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+    'size': 'normal',
+    'callback': (response) => {
+      // reCAPTCHA solved, allow signInWithPhoneNumber.
+      // ...
+      console.log("recaptcha allowed")
+      console.log(response)
+    },
+    'expired-callback': () => {
+      // Response expired. Ask user to solve reCAPTCHA again.
+      // ...
+
+      console.log("recaptcha not allowed")
+      console.log("expired-callback")
+    }
+  });
+  const appVerifier = window.recaptchaVerifier;
+  signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    .then((confirmationResult) => {
+      // SMS sent. Prompt user to type the code from the message, then sign the
+      // user in with confirmationResult.confirm(code).
+      window.confirmationResult = confirmationResult;
+      console.log(confirmationResult)
+      return confirmationResult;
+      // ...
+    }).catch((error) => {
+    // Error; SMS not sent
+    // ...
+    console.log("SMS not sent")
+    console.log(error);
+  });
 };
 
-export const verifyCode = async (code, confirmationResult, setMessage) => {
-  try {
-    const result = await confirmationResult.confirm(code);
-    // Code vérifié avec succès, utilisateur connecté
-    setMessage("Authentification réussie !");
-  } catch (error) {
-    setMessage(`Erreur lors de la vérification du code : ${error.message}`);
-  }
-};
-
-export const onSignInSubmit = async (phone, verifier) => {
-  return await signInWithPhoneNumber(auth, phone, verifier);
-}
