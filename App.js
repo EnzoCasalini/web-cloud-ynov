@@ -78,7 +78,7 @@ export default function App() {
       <TextInput
         style={styles.input}
         onChangeText={setPhone}
-        value={phoneNumber}
+        value={phone}
       ></TextInput>
       <Pressable id="sign-in-button-phone" onPress={() => loginWithPhoneNumber(phoneNumber)} style = {styles.button}>
         <Text>Sign In with Phone</Text>
