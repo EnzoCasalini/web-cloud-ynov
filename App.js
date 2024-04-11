@@ -11,40 +11,6 @@ export default function App() {
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [code, setCode] = useState('');
-  const [message, setMessage] = useState('');
-  const [confirmationResult, setConfirmationResult] = useState(null);
-
-  const handleSignUp = () => {
-    const emailRegex = /\S+@\S+\.\S+/;
-    if (!emailRegex.test(email)) {
-      setMessage("Please enter a valid email address.");
-      return;
-    }
-
-    if (password.length < 6) {
-      setMessage("Password must be at least 6 characters long.");
-      return;
-    }
-
-    signup(email, password, (msg) => setMessage(msg));
-  };
-
-  const handleSignIn = () => {
-    signin(email, password, (msg) => setMessage(msg));
-  };
-
-  const handleSendVerificationCode = () => {
-    sendVerificationCode(phone, (result) => setConfirmationResult(result), (msg) => setMessage(msg));
-  };
-
-  // Adjust verifyCode to match the expected function signature and use verificationId
-  const handleVerifyCode = () => {
-    if (confirmationResult) {
-      verifyCode(code, (result) => setConfirmationResult(result), (msg) => setMessage(msg));
-    } else {
-      setMessage("Erreur: Pas de verificationId disponible. Veuillez d'abord envoyer le code.");
-    }
-  };
 
   return (
     <View style={styles.container}>
