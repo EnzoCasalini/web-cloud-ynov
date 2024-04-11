@@ -62,6 +62,7 @@ export default function App() {
         placeholder="Password"
         secureTextEntry={true}
       />
+      <div id="recaptcha-container"></div>
       <Button title="Sign Up" onPress={() => handleSignUp(email, password, setMessage)} />
       <Button title="Sign In" onPress={() => handleSignIn(email, password, setMessage)} />
       <Text>GitHub Authentication</Text>
