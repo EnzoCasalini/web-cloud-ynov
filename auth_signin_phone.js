@@ -1,7 +1,7 @@
-import app from "../firebaseConfig";
+import './firebaseConfig'
 import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from "firebase/auth";
 
-const auth = getAuth(app);
+const auth = getAuth();
 console.log(auth);
 
 export const loginWithPhoneNumber = async (phoneNumber) => {
