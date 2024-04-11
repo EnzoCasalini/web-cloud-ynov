@@ -1,9 +1,9 @@
-import {Button, Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
-import Toast from 'react-native-root-toast';
+import {Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import {useState} from "react";
 import {signup} from "./auth_signup_password";
 import {signin} from "./auth_signin_password";
-import {loginWithPhoneNumber, sendVerificationCode, verifyCode} from "./auth_signin_phone";
+import {loginWithPhoneNumber} from "./auth_signin_phone";
+import {verifyCode} from "./auth_phone_verify_code";
 import {signinWithGithub} from "./auth_github_signin_popup";
 
 export default function App() {
