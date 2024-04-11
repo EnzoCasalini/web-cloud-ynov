@@ -80,7 +80,7 @@ export default function App() {
         onChangeText={setPhone}
         value={phone}
       ></TextInput>
-      <Pressable id="sign-in-button-phone" onPress={() => loginWithPhoneNumber(phoneNumber)} style = {styles.button}>
+      <Pressable id="sign-in-button-phone" onPress={() => loginWithPhoneNumber(phone)} style = {styles.button}>
         <Text>Sign In with Phone</Text>
       </Pressable>
       <div id="recaptcha-container"></div>
