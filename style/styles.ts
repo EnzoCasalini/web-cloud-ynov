@@ -5,6 +5,10 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
+    container2: {
+        flex: 1,
+        padding: 30,
+    },
     navbar: {
         paddingVertical: 10,
         paddingHorizontal: 20,
@@ -51,6 +55,13 @@ export const styles = StyleSheet.create({
         color: '#e5e0e0',
         textAlign: 'center',
         marginVertical: 30,
+    },
+    profileTitle: {
+        fontSize: 20,
+        fontFamily: 'PT Sans',
+        color: '#e5e0e0',
+        textAlign: 'center',
+        marginVertical: 20,
     },
     form: {
         borderWidth: 1,
@@ -103,6 +114,21 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#3b3b3b',
+        padding: 5,
+        borderRadius: 5,
+        width: 120,
+    },
+    userInfoContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 10,
+    },
+    redirectLink: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#e5e0e0',
+        color: '#3b3b3b',
         padding: 5,
         borderRadius: 5,
         width: 120,

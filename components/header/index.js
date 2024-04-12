@@ -10,6 +10,7 @@ const Header = () => {
       <View style={styles.links}>
         <Link href="/signin" style={styles.link}>Login</Link>
         <Link href="/signup" style={styles.link}>Register</Link>
+        <Link href="/profile" style={styles.link}>Profile</Link>
       </View>
     </View>
   );

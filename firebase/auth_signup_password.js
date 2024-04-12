@@ -5,12 +5,16 @@ const auth = getAuth();
 export const signup = (email, password, callback) => {
 
     createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed up
-            callback("Your account has been created successfully !");
-        })
-        .catch((error) => {
-            const errorMessage = error.message;
-            callback("Failed to sign up: " + errorMessage);
-        });
+      .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          // ...
+          console.log(user)
+          console.log("signup success")
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(error);
+      });
 }

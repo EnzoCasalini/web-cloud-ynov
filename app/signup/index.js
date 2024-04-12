@@ -15,14 +15,14 @@ const SignUp = () => {
         <Text style={styles.h2}>🛸  Register</Text>
         <Text style={styles.label}>Email</Text>
         <TextInput
-          onChangeText={setEmail}
           value={email}
+          onChangeText={setEmail}
           style={styles.input}
         />
         <Text style={styles.label}>Password</Text>
         <TextInput
-          onChangeText={setPassword}
           value={password}
+          onChangeText={setPassword}
           secureTextEntry={true}
           style={styles.input}
         />
