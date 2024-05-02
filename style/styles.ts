@@ -4,13 +4,16 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
+        justifyContent: 'flex-start',
     },
     container2: {
         flex: 1,
         padding: 30,
     },
     container3: {
-        flex: 1,
+        display: "flex",
+        width: '100%',
+        padding: 30,
         top: '5%',
         gap: 20,
         flexDirection: 'column',
@@ -148,5 +151,14 @@ export const styles = StyleSheet.create({
         width: 100,
         height: 100,
         borderRadius: 50,
+    },
+    post: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 10,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#e5e0e0',
+        borderRadius: 5,
     },
 });
