@@ -9,6 +9,12 @@ export const styles = StyleSheet.create({
         flex: 1,
         padding: 30,
     },
+    container3: {
+        flex: 1,
+        top: '5%',
+        gap: 20,
+        flexDirection: 'column',
+    },
     navbar: {
         paddingVertical: 10,
         paddingHorizontal: 20,
@@ -32,12 +38,17 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         fontFamily: 'PT Sans',
     },
+    linkUnderline: {
+        color: '#e5e0e0',
+        fontSize: 16,
+        fontFamily: 'PT Sans',
+        textDecorationLine: 'underline',
+    },
     icon: {
         marginRight: 5,
     },
     h1: {
         fontSize: 40,
-        top: 50,
         fontFamily: 'PT Sans',
         color: '#e5e0e0',
         textAlign: 'center',

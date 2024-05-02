@@ -6,9 +6,9 @@ import {Link} from "expo-router";
 export default function App() {
   return (
     <LinearGradient colors={['#2a2a2a', '#7a7a7a']} style={styles.container}>
-      <View>
+      <View style={styles.container3}>
         <Text style={styles.h1}>Welcome to my app !</Text>
-        <Link href="posts/add_post">Start by adding a new post !</Link>
+        <Link href="posts/add_post" style={styles.linkUnderline}>Start by adding a new post !</Link>
       </View>
     </LinearGradient>
   );
