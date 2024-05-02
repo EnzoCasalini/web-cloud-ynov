@@ -113,7 +113,7 @@ export const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#3b3b3b',
+        backgroundColor: '#313131',
         padding: 5,
         borderRadius: 5,
         width: 120,
@@ -132,5 +132,10 @@ export const styles = StyleSheet.create({
         padding: 5,
         borderRadius: 5,
         width: 120,
+    },
+    image: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
     },
 });
