@@ -8,6 +8,7 @@ import "../../style/styles";
 import {styles} from "../../style/styles";
 import {LinearGradient} from "expo-linear-gradient";
 import {Ionicons} from "@expo/vector-icons";
+import {Link} from "expo-router";
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -63,6 +64,7 @@ const SignIn = () => {
         <Pressable onPress={() => verifyCode(code)} style={styles.button}>
           <Text style={styles.text}>Check Code !</Text>
         </Pressable>
+        <Link href="/signup" style={styles.redirectLink}>You don't have an account ? Sign Up</Link>
       </View>
     </LinearGradient>
   );
