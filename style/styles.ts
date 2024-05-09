@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
@@ -14,7 +14,14 @@ export const styles = StyleSheet.create({
         display: "flex",
         width: '100%',
         padding: 30,
-        top: '2%',
+        flexDirection: 'column',
+    },
+    postsContainer: {
+        display: "flex",
+        width: '100%',
+        padding: 30,
+        paddingTop: 0,
+        gap: 30,
         flexDirection: 'column',
     },
     formContainer: {
@@ -37,7 +44,7 @@ export const styles = StyleSheet.create({
         height: 50,
         backgroundColor: 'rgb(49,46,46)',
         shadowColor: '#656565',
-        shadowOffset: { width: 0, height: 1 },
+        shadowOffset: {width: 0, height: 1},
         shadowRadius: 4,
     },
     links: {
@@ -166,10 +173,31 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         gap: 10,
-        height: 200,
-        padding: 10,
+        height: 300,
+        padding: 5,
         borderWidth: 1,
         borderColor: '#e5e0e0',
+        borderRadius: 5,
+    },
+    postTitle: {
+        fontFamily: 'PT Sans',
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#e5e0e0',
+    },
+    postText: {
+        fontFamily: 'PT Sans',
+        fontSize: 16,
+        color: '#e5e0e0',
+    },
+    thumbnail: {
+        width: '100%',
+        height: 150,
+    },
+    thumbnailForm: {
+        width: '100%',
+        height: 200,
+        objectFit: 'cover',
         borderRadius: 5,
     },
     error: {
@@ -180,10 +208,4 @@ export const styles = StyleSheet.create({
         fontSize: 12,
         marginBottom: 10,
     },
-    thumbnailForm: {
-        width: '100%',
-        height: 200,
-        objectFit: 'cover',
-        borderRadius: 5,
-    }
 });

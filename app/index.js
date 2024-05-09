@@ -28,20 +28,27 @@ export default function App() {
     router.replace('/posts/add_post');
   }
 
+  const truncateText = (text, maxLength) => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  };
+
   return (
     <LinearGradient colors={['#2a2a2a', '#7a7a7a']} style={styles.container}>
       <ScrollView style={styles.mainScrollView}>
         <View style={styles.container3}>
           <Text style={styles.h1}>Welcome to this insane blog !</Text>
-          <Pressable onPress={navigateToAddPost} style={styles.linkUnderline}>Start by adding a new post !</Pressable>
+          <Pressable onPress={navigateToAddPost}><Text style={styles.linkUnderline}>Start by adding a new post !</Text></Pressable>
         </View>
-        <View style={styles.container3}>
+        <View style={styles.postsContainer}>
           {posts.map((post, index) => {
             return (
               <Pressable key={index} style={styles.post} onPress={() => router.replace(`posts/${post.id}`)}>
-                <Text style={styles.h2}>{post.title}</Text>
-                <Image source={{uri: post.thumbnail}} style={styles.thumbnailForm} />
-                <Text style={styles.text}>{post.text}</Text>
+                <Image source={{uri: post.thumbnail}} style={styles.thumbnail} />
+                <Text style={styles.postTitle}>{post.title}</Text>
+                <Text style={styles.postText}>{truncateText(post.text, 200)}</Text>
               </Pressable>
             )
           })}
