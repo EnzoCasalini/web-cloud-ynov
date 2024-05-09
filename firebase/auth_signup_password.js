@@ -17,7 +17,7 @@ export const signup = (email, password, displayName, photoUrl) => {
 
       let imageUrl = '';
       if (photoUrl) {
-        imageUrl = await uploadToFirebase(photoUrl);
+        imageUrl = await uploadToFirebase(photoUrl, "profile");
         profileUpdate.photoURL = imageUrl;
       }
 

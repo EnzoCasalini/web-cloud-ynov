@@ -14,9 +14,12 @@ export const styles = StyleSheet.create({
         display: "flex",
         width: '100%',
         padding: 30,
-        top: '5%',
-        gap: 20,
+        top: '2%',
         flexDirection: 'column',
+    },
+    mainScrollView: {
+        flex: 1,
+        width: '100%',
     },
     navbar: {
         paddingVertical: 10,
@@ -55,6 +58,7 @@ export const styles = StyleSheet.create({
         fontFamily: 'PT Sans',
         color: '#e5e0e0',
         textAlign: 'center',
+        marginBottom: 30,
     },
     h2: {
         fontSize: 20,
@@ -156,6 +160,7 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         gap: 10,
+        height: 200,
         padding: 10,
         borderWidth: 1,
         borderColor: '#e5e0e0',
@@ -169,4 +174,10 @@ export const styles = StyleSheet.create({
         fontSize: 12,
         marginBottom: 10,
     },
+    thumbnailForm: {
+        width: '100%',
+        height: 200,
+        objectFit: 'cover',
+        borderRadius: 5,
+    }
 });

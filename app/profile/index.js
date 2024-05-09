@@ -61,7 +61,7 @@ const Profile = () => {
   const updateUserPicture = async (uri) => {
     let imageUrl = '';
     if (uri) {
-      imageUrl = await uploadToFirebase(uri);
+      imageUrl = await uploadToFirebase(uri, "profile");
     }
 
     updatePhotoURL(imageUrl).then(() => {

@@ -1,7 +1,12 @@
 import {getDownloadURL, getStorage, ref, uploadBytes} from "firebase/storage";
 
-export const uploadToFirebase = async (uri, onProgress) => {
-  const imageName = `profileImages/${Date.now()}`;
+export const uploadToFirebase = async (uri, type, onProgress) => {
+  let imageName = '';
+  if (type === 'profile') {
+    imageName = `profileImages/${Date.now()}`;
+  } else {
+    imageName = `postImages/${Date.now()}`;
+  }
   const imageRef = ref(getStorage(), imageName);
 
   const fetchResponse = await fetch(uri);
