@@ -1,4 +1,4 @@
-import {Pressable, Text, TextInput, View} from 'react-native';
+import {Pressable, ScrollView, Text, TextInput, View} from 'react-native';
 import {signin} from "../../firebase/auth_signin_password";
 import {signinWithGithub} from "../../firebase/auth_github_signin_popup";
 import {loginWithPhoneNumber} from "../../firebase/auth_signin_phone";
@@ -18,7 +18,7 @@ const SignIn = () => {
 
   return (
     <LinearGradient colors={['#2a2a2a', '#7a7a7a']} style={styles.container}>
-      <View style={styles.form}>
+      <ScrollView style={styles.form}>
         <Text style={styles.h2}>🪐 Login</Text>
         <Text style={styles.label}>Email</Text>
         <TextInput
@@ -65,7 +65,7 @@ const SignIn = () => {
           <Text style={styles.text}>Check Code !</Text>
         </Pressable>
         <Link href="/signup" style={styles.redirectLink}>You don't have an account ? Sign Up</Link>
-      </View>
+      </ScrollView>
     </LinearGradient>
   );
 }
