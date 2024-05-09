@@ -68,7 +68,7 @@ const AddPost = () => {
     <LinearGradient colors={['#2a2a2a', '#7a7a7a']} style={styles.formContainer}>
       <Text style={styles.h1}>Add a new post</Text>
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Title :</Text>
+        <Text style={styles.label}>Title * :</Text>
         <TextInput
           style={styles.input}
           value={title}
@@ -78,7 +78,7 @@ const AddPost = () => {
       </View>
 
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Text :</Text>
+        <Text style={styles.label}>Text * :</Text>
         <TextInput
           style={styles.input}
           value={text}

@@ -77,8 +77,14 @@ const Profile = () => {
     <LinearGradient colors={['#2a2a2a', '#7a7a7a']} style={styles.container2}>
       {user ? (
         <View style={styles.userInfoContainer}>
-          <Text style={styles.profileTitle}>Profile</Text>
-          <Text style={styles.text}>Email: {user.email}</Text>
+          <Text style={styles.profileTitle}>Your profile</Text>
+          <View style={styles.userProfilePic}>
+            <Image source={{ uri: image }} style={styles.image} />
+            <Pressable style={styles.longButton} onPress={pickImage}>
+              <Text style={styles.text}>Modify your profile picture</Text>
+            </Pressable>
+          </View>
+          { user.email ? <Text style={styles.text}>E-mail: {user.email}</Text> : <Text style={styles.text}>You didn't provide your e-mail yet.</Text> }
           <Text style={styles.text}>UID: {user.uid}</Text>
           <Text style={styles.text}>Display Name: {user.displayName}</Text>
           <TextInput
@@ -87,20 +93,9 @@ const Profile = () => {
             style={styles.input}
             placeholder="Display Name"
           />
-          <Pressable onPress={updateUserName} style={styles.button}>
+          <Pressable onPress={updateUserName} style={styles.longButton}>
             <Text style={styles.text}>Update Display Name</Text>
           </Pressable>
-          { image ?
-            <>
-              <Image source={{ uri: image }} style={styles.image} />
-              <Button title="Modify your profile picture" onPress={pickImage} />
-            </>
-            :
-            <>
-              <Text style={styles.text}>You don't have a profile picture yet !</Text>
-              <Button title="Add a profile picture" onPress={pickImage} />
-            </>
-      }
         </View>
       ) : (
         <View style={styles.userInfoContainer}>

@@ -88,7 +88,7 @@ export const styles = StyleSheet.create({
         marginVertical: 30,
     },
     profileTitle: {
-        fontSize: 20,
+        fontSize: 24,
         fontFamily: 'PT Sans',
         color: '#e5e0e0',
         textAlign: 'center',
@@ -149,10 +149,26 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         width: 120,
     },
+    longButton: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#313131',
+        padding: 5,
+        borderRadius: 5,
+        width: 250,
+    },
     userInfoContainer: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 10,
+        gap: 15,
+    },
+    userProfilePic: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 20,
+        marginBottom: 30,
     },
     redirectLink: {
         display: 'flex',
@@ -165,9 +181,9 @@ export const styles = StyleSheet.create({
         width: 120,
     },
     image: {
-        width: 100,
-        height: 100,
-        borderRadius: 50,
+        width: 150,
+        height: 150,
+        borderRadius: 75,
     },
     post: {
         display: 'flex',
@@ -195,6 +211,7 @@ export const styles = StyleSheet.create({
         height: 150,
     },
     thumbnailForm: {
+        marginTop: 10,
         width: '100%',
         height: 200,
         objectFit: 'cover',
