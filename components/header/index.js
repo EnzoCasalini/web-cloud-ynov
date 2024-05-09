@@ -1,3 +1,4 @@
+import '../../firebase/firebaseConfig';
 import {Pressable, View} from 'react-native';
 import {styles} from "../../style/styles";
 import {Ionicons} from "@expo/vector-icons";
