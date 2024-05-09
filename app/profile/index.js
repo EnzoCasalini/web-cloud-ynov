@@ -92,8 +92,17 @@ const Profile = () => {
           <Pressable onPress={updateUserName} style={styles.button}>
             <Text style={styles.text}>Update Display Name</Text>
           </Pressable>
-          {image && <Image source={{ uri: image }} style={styles.image} />}
-          <Button title="Pick an image from camera roll" onPress={pickImage} />
+          { image ?
+            <>
+              <Image source={{ uri: image }} style={styles.image} />
+              <Button title="Modify your profile picture" onPress={pickImage} />
+            </>
+            :
+            <>
+              <Text style={styles.text}>You don't have a profile picture yet !</Text>
+              <Button title="Add a profile picture" onPress={pickImage} />
+            </>
+      }
         </View>
       ) : (
         <View style={styles.userInfoContainer}>
