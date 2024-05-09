@@ -40,7 +40,7 @@ export default function App() {
             return (
               <Pressable key={index} style={styles.post} onPress={() => router.replace(`posts/${post.id}`)}>
                 <Text style={styles.h2}>{post.title}</Text>
-                <Image source={{uri: post.thumbnail}} style={styles.thumbnail} />
+                <Image source={{uri: post.thumbnail}} style={styles.thumbnailForm} />
                 <Text style={styles.text}>{post.text}</Text>
               </Pressable>
             )

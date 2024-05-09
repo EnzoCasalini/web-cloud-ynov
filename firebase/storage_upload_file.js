@@ -25,3 +25,22 @@ export const uploadToFirebase = async (uri, type, onProgress) => {
 
   return downloadUrl;
 }
+
+export const getDefaultImageUrl = async (type) => {
+  let imageName = '';
+  if (type === 'profile') {
+    imageName = 'profileImages/Default user profile picture.jpg';
+  } else {
+    imageName = `postImages/Default thumbnail image.png`;
+  }
+  const storageRef = ref(getStorage(), imageName);
+
+  try {
+    const url = await getDownloadURL(storageRef);
+    console.log("URL de l'image :", url);
+    return url;
+  } catch (error) {
+    console.error("Erreur lors de l'obtention de l'URL de téléchargement :", error);
+    return null;
+  }
+};

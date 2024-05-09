@@ -1,7 +1,7 @@
 import './firebaseConfig';
 import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 import { router } from 'expo-router';
-import {uploadToFirebase} from "./storage_upload_file";
+import {getDefaultImageUrl, uploadToFirebase} from "./storage_upload_file";
 
 const auth = getAuth();
 export const signup = (email, password, displayName, photoUrl) => {
@@ -18,6 +18,10 @@ export const signup = (email, password, displayName, photoUrl) => {
       let imageUrl = '';
       if (photoUrl) {
         imageUrl = await uploadToFirebase(photoUrl, "profile");
+        profileUpdate.photoURL = imageUrl;
+      }
+      else {
+        imageUrl = await getDefaultImageUrl("profile");
         profileUpdate.photoURL = imageUrl;
       }
 

@@ -17,6 +17,12 @@ export const styles = StyleSheet.create({
         top: '2%',
         flexDirection: 'column',
     },
+    formContainer: {
+        flex: 1,
+        padding: 30,
+        flexDirection: 'column',
+        gap: 20,
+    },
     mainScrollView: {
         flex: 1,
         width: '100%',

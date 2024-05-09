@@ -8,7 +8,6 @@ import {LinearGradient} from "expo-linear-gradient";
 import * as ImagePicker from "expo-image-picker";
 import {useAuth} from "../contexts/authContext";
 import {uploadToFirebase} from "../../firebase/storage_upload_file";
-import {updatePhotoURL} from "../../firebase/auth_update_photo_url";
 
 const auth = getAuth();
 
@@ -50,8 +49,8 @@ const AddPost = () => {
       return;
     }
 
-    if (title.trim() === '' || text.trim() === '' || thumbnail.trim() === '') {
-      alert('All fields are required.');
+    if (title.trim() === '' || text.trim() === '') {
+      alert('Please, fill the required fields.');
       return;
     }
 
@@ -66,30 +65,36 @@ const AddPost = () => {
   };
 
   return (
-    <LinearGradient colors={['#2a2a2a', '#7a7a7a']} style={styles.container2}>
+    <LinearGradient colors={['#2a2a2a', '#7a7a7a']} style={styles.formContainer}>
       <Text style={styles.h1}>Add a new post</Text>
-      <Text style={styles.label}>Title :</Text>
-      <TextInput
-        style={styles.input}
-        value={title}
-        onChangeText={setTitle}
-        placeholder="Enter the title"
-      />
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Title :</Text>
+        <TextInput
+          style={styles.input}
+          value={title}
+          onChangeText={setTitle}
+          placeholder="Enter the title"
+        />
+      </View>
 
-      <Text style={styles.label}>Text :</Text>
-      <TextInput
-        style={styles.input}
-        value={text}
-        onChangeText={setText}
-        multiline
-        numberOfLines={4}
-        placeholder="Enter the text"
-      />
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Text :</Text>
+        <TextInput
+          style={styles.input}
+          value={text}
+          onChangeText={setText}
+          multiline
+          numberOfLines={4}
+          placeholder="Enter the text"
+        />
+      </View>
 
-      <Pressable style={styles.button} onPress={pickImage}>
-        <Text style={styles.text}>Pick a thumbnail !</Text>
-      </Pressable>
-      { thumbnail ? <Image source={{ uri: thumbnail }} style={styles.thumbnailForm} /> : null }
+      <View style={styles.inputContainer}>
+        <Pressable style={styles.button} onPress={pickImage}>
+          <Text style={styles.text}>Pick a thumbnail !</Text>
+        </Pressable>
+        { thumbnail ? <Image source={{ uri: thumbnail }} style={styles.thumbnailForm} /> : null }
+      </View>
 
       <Pressable style={styles.button} onPress={handleSubmit}>
         <Text style={styles.text}>Submit</Text>
