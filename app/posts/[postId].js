@@ -4,9 +4,13 @@ import {getOnePostData} from "../../firebase/get_one_post_data";
 import {Text, View} from "react-native";
 import {styles} from "../../style/styles";
 import {LinearGradient} from "expo-linear-gradient";
+import {getAuth} from "firebase/auth";
+
+const auth = getAuth();
 
 const NewPost = () => {
   const [post, setPost] = useState(null);
+  const [comments, setComments] = useState([]);
 
   const local = useLocalSearchParams();
 

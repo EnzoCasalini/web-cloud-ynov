@@ -1,27 +1,16 @@
 import '../../firebase/firebaseConfig';
-import {Pressable, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import {styles} from "../../style/styles";
 import {Ionicons} from "@expo/vector-icons";
 import {Link} from "expo-router";
 import {getAuth} from "firebase/auth";
-import {useEffect, useState} from "react";
 import {router} from "expo-router";
+import {useAuth} from "../../app/contexts/authContext";
 
 const auth = getAuth();
 
 const Header = () => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-    });
-    return () => unsubscribe();
-  }, []);
+  const { user } = useAuth();
 
   const handleSignout = () => {
     auth.signOut().then(() => {
@@ -40,7 +29,9 @@ const Header = () => {
       {user ? (
         <View style={styles.links}>
           <Link href="/profile" style={styles.link}>Profile</Link>
-          <Pressable onPress={handleSignout} style={styles.link}>Logout</Pressable>
+          <Pressable onPress={handleSignout}>
+            <Text style={styles.link}>Logout</Text>
+          </Pressable>
         </View>
       ) :
         <View style={styles.links}>

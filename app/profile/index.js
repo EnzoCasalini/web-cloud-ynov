@@ -7,22 +7,20 @@ import { LinearGradient } from "expo-linear-gradient";
 import * as ImagePicker from 'expo-image-picker';
 import {uploadToFirebase} from "../../firebase/storage_upload_file";
 import {updatePhotoURL} from "../../firebase/auth_update_photo_url";
+import {useAuth} from "../contexts/authContext";
 
 const auth = getAuth();
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
   const [displayName, setDisplayName] = useState('');
   const [image, setImage] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        setUser(user);
         setDisplayName(user.displayName || '');
         setImage(user.photoURL || '');
-      } else {
-        setUser(null);
       }
     });
     return () => unsubscribe();
@@ -32,7 +30,7 @@ const Profile = () => {
   const pickImage = async () => {
     const permissionToAccessGallery = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (permissionToAccessGallery.granted === false) {
-      Alert.alert("Permission Required", "Permission to access camera roll is required !");
+      console.log('Permission to access camera roll is required !');
       return;
     }
 
