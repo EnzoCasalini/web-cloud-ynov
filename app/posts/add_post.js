@@ -33,7 +33,7 @@ const AddPost = () => {
 
     try {
       await createPost(title, text, user.uid);
-      router.replace('/posts');
+      router.replace('/');
       alert('Post created successfully!');
     } catch (error) {
       console.error('Failed to add the post: ', error);

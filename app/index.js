@@ -1,9 +1,10 @@
-import {Text, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import {styles} from "../style/styles";
 import {LinearGradient} from "expo-linear-gradient";
 import {Link} from "expo-router";
 import {useEffect, useState} from "react";
 import {getPostsData} from "../firebase/get_posts_data";
+import { router } from "expo-router";
 
 export default function App() {
   const [posts, setPosts] = useState([]);
@@ -27,10 +28,10 @@ export default function App() {
       <View style={styles.container3}>
         { posts.map((post, index) => {
           return (
-          <View key={index} style={styles.post}>
+          <Pressable key={index} style={styles.post} onPress={() => router.replace(`posts/${post.id}`)}>
             <Text style={styles.h2}>{post.title}</Text>
             <Text style={styles.text}>{post.text}</Text>
-          </View>
+          </Pressable>
           )
         })}
       </View>

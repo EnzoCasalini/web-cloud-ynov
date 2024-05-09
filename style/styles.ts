@@ -121,7 +121,7 @@ export const styles = StyleSheet.create({
         borderColor: '#3b3b3b',
         borderWidth: 1,
         padding: 10,
-        marginBottom: 15,
+        marginBottom: 5,
     },
     button: {
         display: 'flex',
@@ -160,5 +160,13 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#e5e0e0',
         borderRadius: 5,
+    },
+    error: {
+        color: '#d52e2e',
+        fontWeight: 'bold',
+        fontFamily: 'PT Sans',
+        letterSpacing: 1.1,
+        fontSize: 12,
+        marginBottom: 10,
     },
 });

@@ -72,7 +72,7 @@ const Profile = () => {
 
   const updateUserPicture = (photoURL) => {
     if (photoURL) {
-      uploadToFirebase(photoURL, 'profilePictures').then((url) => {
+      uploadToFirebase(photoURL).then((url) => {
         updatePhotoURL(url).then(() => {
           setHasPhoto(true);
         });
