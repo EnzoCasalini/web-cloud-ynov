@@ -25,7 +25,7 @@ const Profile = () => {
         setUser(null);
       }
     });
-    return () => unsubscribe(); // Cleanup subscription
+    return () => unsubscribe();
   }, []);
 
 
