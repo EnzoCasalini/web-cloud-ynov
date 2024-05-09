@@ -46,15 +46,10 @@ const SignUp = () => {
   };
 
   const handleSignUp = async () => {
-    let imageUrl = '';
-    if (profileImage) {
-      imageUrl = await uploadToFirebase(profileImage);
-    }
-
     if (validateInputs()) {
-      signup(email, password, displayName, imageUrl);
+      signup(email, password, displayName, profileImage);
     } else {
-      Alert.alert("Required", "Please fill all the required fields.");
+      console.log('Please, fill in the required fields !');
     }
   };
 

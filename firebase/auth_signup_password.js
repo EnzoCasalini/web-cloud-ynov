@@ -1,5 +1,7 @@
 import './firebaseConfig';
 import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
+import { router } from 'expo-router';
+import {uploadToFirebase} from "./storage_upload_file";
 
 const auth = getAuth();
 export const signup = (email, password, displayName, photoUrl) => {
@@ -13,12 +15,15 @@ export const signup = (email, password, displayName, photoUrl) => {
         displayName: displayName
       };
 
+      let imageUrl = '';
       if (photoUrl) {
-        profileUpdate.photoURL = photoUrl;
+        imageUrl = await uploadToFirebase(photoUrl);
+        profileUpdate.photoURL = imageUrl;
       }
 
       return updateProfile(user, profileUpdate).then(() => {
         console.log("Profile updated");
+        router.replace('/profile');
       })
       .catch((error) => {
         console.error("Error updating profile:", error);
