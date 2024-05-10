@@ -163,6 +163,16 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         width: 120,
     },
+    postPageButton: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#313131',
+        padding: 5,
+        borderRadius: 5,
+        width: 120,
+        marginBottom: 20,
+    },
     longButton: {
         display: 'flex',
         alignItems: 'center',
@@ -208,7 +218,6 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         gap: 10,
-        height: 300,
         padding: 5,
         borderWidth: 1,
         borderColor: '#e5e0e0',
@@ -235,6 +244,23 @@ export const styles = StyleSheet.create({
         height: 200,
         objectFit: 'cover',
         borderRadius: 5,
+    },
+    commentSection: {
+      marginTop: 30,
+    },
+    commentContainer: {
+        borderTopWidth: 1,
+        borderTopColor: '#a1a1a1',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 10,
+        paddingVertical: 10,
+    },
+    userName: {
+        fontFamily: 'PT Sans',
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#e5e0e0',
     },
     error: {
         color: '#d52e2e',

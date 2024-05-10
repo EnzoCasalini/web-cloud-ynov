@@ -48,7 +48,7 @@ export default function App() {
               <Pressable key={index} style={styles.post} onPress={() => router.replace(`posts/${post.id}`)}>
                 <Image source={{uri: post.thumbnail}} style={styles.thumbnail} />
                 <Text style={styles.postTitle}>{post.title}</Text>
-                <Text style={styles.postText}>{truncateText(post.text, 200)}</Text>
+                <Text style={styles.postText}>{truncateText(post.text, 180)}</Text>
               </Pressable>
             )
           })}
